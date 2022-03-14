@@ -1,0 +1,417 @@
+{
+	"info": {
+		"_postman_id": "c75f4f46-3e99-4b57-8d34-3199f423d476",
+		"name": "AWS-Atividade02-APIs-REST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Twitter API",
+			"item": [
+				{
+					"name": "Get Tweet By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.twitter.com/2/tweets/20",
+							"protocol": "https",
+							"host": [
+								"api",
+								"twitter",
+								"com"
+							],
+							"path": [
+								"2",
+								"tweets",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Tweets by Tag",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.twitter.com/2/tweets/search/recent?query=%23bolhadev&tweet.fields=id,text,created_at,author_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"twitter",
+								"com"
+							],
+							"path": [
+								"2",
+								"tweets",
+								"search",
+								"recent"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "#bolhadev"
+								},
+								{
+									"key": "tweet.fields",
+									"value": "id,text,created_at,author_id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Spaces",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.twitter.com/2/spaces/search?query=development&space.fields=id,state,title,scheduled_start,subscriber_count",
+							"protocol": "https",
+							"host": [
+								"api",
+								"twitter",
+								"com"
+							],
+							"path": [
+								"2",
+								"spaces",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "development"
+								},
+								{
+									"key": "space.fields",
+									"value": "id,state,title,scheduled_start,subscriber_count"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{twitter_bearer_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "PasteBin API",
+			"item": [
+				{
+					"name": "Create new paste",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "api_option",
+									"value": "paste",
+									"type": "text"
+								},
+								{
+									"key": "api_paste_code",
+									"value": "<?php echo 'hello'; ?>",
+									"type": "text"
+								},
+								{
+									"key": "api_paste_format",
+									"value": "php",
+									"type": "text"
+								},
+								{
+									"key": "api_dev_key",
+									"value": "{{pastebin_api_key}}",
+									"type": "text"
+								},
+								{
+									"key": "api_paste_name",
+									"value": "My PHP hello",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://pastebin.com/api/api_post.php",
+							"protocol": "https",
+							"host": [
+								"pastebin",
+								"com"
+							],
+							"path": [
+								"api",
+								"api_post.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Marvel Comics API",
+			"item": [
+				{
+					"name": "List characters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gateway.marvel.com/v1/public/characters?apikey={{marvel_public_key}}&hash={{marvel_api_hash}}&ts=1",
+							"protocol": "https",
+							"host": [
+								"gateway",
+								"marvel",
+								"com"
+							],
+							"path": [
+								"v1",
+								"public",
+								"characters"
+							],
+							"query": [
+								{
+									"key": "apikey",
+									"value": "{{marvel_public_key}}"
+								},
+								{
+									"key": "hash",
+									"value": "{{marvel_api_hash}}"
+								},
+								{
+									"key": "ts",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search characters by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gateway.marvel.com/v1/public/characters?apikey={{marvel_public_key}}&hash={{marvel_api_hash}}&ts=1&name=wolverine",
+							"protocol": "https",
+							"host": [
+								"gateway",
+								"marvel",
+								"com"
+							],
+							"path": [
+								"v1",
+								"public",
+								"characters"
+							],
+							"query": [
+								{
+									"key": "apikey",
+									"value": "{{marvel_public_key}}"
+								},
+								{
+									"key": "hash",
+									"value": "{{marvel_api_hash}}"
+								},
+								{
+									"key": "ts",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "wolverine"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List comics by character",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gateway.marvel.com/v1/public/characters/1009718/comics?apikey={{marvel_public_key}}&hash={{marvel_api_hash}}&ts=1",
+							"protocol": "https",
+							"host": [
+								"gateway",
+								"marvel",
+								"com"
+							],
+							"path": [
+								"v1",
+								"public",
+								"characters",
+								"1009718",
+								"comics"
+							],
+							"query": [
+								{
+									"key": "apikey",
+									"value": "{{marvel_public_key}}"
+								},
+								{
+									"key": "hash",
+									"value": "{{marvel_api_hash}}"
+								},
+								{
+									"key": "ts",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List stories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gateway.marvel.com/v1/public/stories?apikey={{marvel_public_key}}&hash={{marvel_api_hash}}&ts=1",
+							"protocol": "https",
+							"host": [
+								"gateway",
+								"marvel",
+								"com"
+							],
+							"path": [
+								"v1",
+								"public",
+								"stories"
+							],
+							"query": [
+								{
+									"key": "apikey",
+									"value": "{{marvel_public_key}}"
+								},
+								{
+									"key": "hash",
+									"value": "{{marvel_api_hash}}"
+								},
+								{
+									"key": "ts",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List comics by story",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gateway.marvel.com/v1/public/stories/7/comics?apikey={{marvel_public_key}}&hash={{marvel_api_hash}}&ts=1",
+							"protocol": "https",
+							"host": [
+								"gateway",
+								"marvel",
+								"com"
+							],
+							"path": [
+								"v1",
+								"public",
+								"stories",
+								"7",
+								"comics"
+							],
+							"query": [
+								{
+									"key": "apikey",
+									"value": "{{marvel_public_key}}"
+								},
+								{
+									"key": "hash",
+									"value": "{{marvel_api_hash}}"
+								},
+								{
+									"key": "ts",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List characters by comics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gateway.marvel.com/v1/public/comics/27238/characters?apikey={{marvel_public_key}}&hash={{marvel_api_hash}}&ts=1",
+							"protocol": "https",
+							"host": [
+								"gateway",
+								"marvel",
+								"com"
+							],
+							"path": [
+								"v1",
+								"public",
+								"comics",
+								"27238",
+								"characters"
+							],
+							"query": [
+								{
+									"key": "apikey",
+									"value": "{{marvel_public_key}}"
+								},
+								{
+									"key": "hash",
+									"value": "{{marvel_api_hash}}"
+								},
+								{
+									"key": "ts",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
